@@ -1,0 +1,12 @@
+﻿@model ShoppingCartVM
+
+<div>
+    <h4>Alışveriş Sepeti</h4>
+    <ul>
+        @foreach (var item in Model.CartItems)
+        {
+            <li>@item.ProductName - @item.Price TL</li>
+        }
+    </ul>
+    <p>Toplam Fiyat: @Model.TotalPrice</p>
+</div>

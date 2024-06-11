@@ -10,7 +10,7 @@ namespace _1_Entity_DbFirst
         {
             RehberContext rehberContext = new RehberContext();
 
-            var persons = rehberContext.Tables.Where( x => x.Id >= 0 ).ToList();
+            var persons = rehberContext.Tables.ToList();
 
             foreach (var item in persons)
             {

@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC</title>
+</head>
+<body>
+    <h1>First Page</h1>
+    <p>Merhaba Dünya</p>
+    @{
+        var helloWorld = "<b>Merhaba Dünya </b>";
+
+    }
+    <p>--------------------</p>
+    <p>@helloWorld</p>
+    <p>@Html.Raw(helloWorld)</p>
+    <p>Bugün Günlerden : @DateTime.Now.ToString()</p>
+    <hr />
+    <h4>Kod Bloglarının içerisinde HTML etiketleri</h4>
+    @{
+        var merhaba = "Bu bir kod bloğu...";
+        <p>bir HTML P Etiketi ve <b>Kalın</b> ifadesi</p>
+
+        double price = 80;
+        if (price <= 50)
+        {
+            <p style="color: green"> İndirimli Fiyat: @price </p>
+        }
+        else
+        {
+            <p style="color: red">Fiyat: @price</p>
+        }
+    }
+
+    @{
+        List<string> categories = new List<string>() { "Kalemler", "Kitaplar", "Defterler", "Silgiler" };
+    }
+
+
+
+
+
+    <ul>
+        @{
+            foreach (var item in categories)
+            {
+                <li>@item</li>
+            }
+        }
+@*         <li>Kalemler</li>
+        <li>Kitaplar</li>
+        <li>Defterler</li>
+        <li>Silgiler</li> *@
+    </ul>
+
+</body>
+</html>

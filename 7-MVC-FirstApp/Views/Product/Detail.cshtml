@@ -1,0 +1,21 @@
+﻿
+@model _7_MVC_FirstApp.Models.Product
+
+@{
+    Layout = null;
+}
+
+
+    <!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+</head>
+<body>
+    <h3>Ürün Adı: @Model.Name</h3>
+    <div><img src="@Model.Image" width="50"/> </div>
+    <p>Ürün Kodu: @Model.Id </p>
+    <p>Ürün Fiyatı: @Model.Price</p>
+
+</body>
+</html>

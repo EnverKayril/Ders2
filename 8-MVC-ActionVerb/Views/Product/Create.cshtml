@@ -1,0 +1,29 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Create</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <form method="post" asp-action="Create" asp-controller="Product">
+                <div class="form-group">
+                    <label>Urun Id:</label>
+                    <input type="text" class="form-control" asp-for="Id" />
+                </div>
+                <div class="form-group">
+                    <label>Urun Adı:</label>
+                    <input type="text" class="form-control" asp-for="Name"/>
+                </div>
+                <div class="form-group">
+                    <label>Urun Fiyat:</label>
+                    <input type="text" class="form-control" asp-for="Price"/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Oluştur" class="btn btn-primary" style="margin-top:10px" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

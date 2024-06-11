@@ -1,0 +1,16 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<h1>Product</h1>
+<h2>Ürün Kistesi</h2>
+<div>
+    @foreach (var product in Model)
+    {
+        @Html.Partial("_ProductPartial", product)
+    }
+</div>
+
+
