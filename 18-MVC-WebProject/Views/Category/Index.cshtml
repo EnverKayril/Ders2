@@ -1,0 +1,79 @@
+﻿@model IEnumerable<_18_MVC_WebProject.Models.VMs.CategoryListVM>
+
+@{
+    ViewBag.AdminTitle = "Kategoriler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @if (item.Status == _18_MVC_WebProject.Models.Enums.Status.Created || item.Status == _18_MVC_WebProject.Models.Enums.Status.Updated)
+                    {
+                        <a asp-action="EditStatus" asp-route-id="@item.Id">
+                            <img src="~/img/play.png" style="width:24px; height:24px" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-action="EditStatus" asp-route-id="@item.Id">
+                            <img src="~/img/pause.png" style=" width:24px; height:24px" />
+                        </a>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+
+                    <a href="#" onclick="confirmDelete('@item.Id') ">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function confirmDelete(id) 
+    {
+        if (confirm("Sikmek istediğinize emin misiniz?")) {
+            window.location.href = '@Url.Action("Delete", "Category")' + '?id=' + id;
+        }
+        else 
+        { 
+            return false;
+        }
+    }
+</script>

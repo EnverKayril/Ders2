@@ -1,0 +1,41 @@
+﻿@model ProductCreateVM
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Create</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="control-label">Kategori Seç</label>
+                <select asp-items="@(new SelectList(Model.Categories, "Id", "Name"))" asp-for="Product.CategoryId" class="form-select">    </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Ürün Adı</label>
+                <input asp-for="Product.Name" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Ürün Fiyatı</label>
+                <input asp-for="Product.Price" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Ürün Stok</label>
+                <input asp-for="Product.Stock" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Ürün Foto</label>
+                <input type="file" name="Image" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary mt-2" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Create">Listeye Dön</a>
+</div>

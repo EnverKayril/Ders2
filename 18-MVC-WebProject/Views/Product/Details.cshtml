@@ -1,0 +1,67 @@
+﻿@model _18_MVC_WebProject.Models.VMs.ProductDetailVM
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+@{
+    var _action = Model.ProductDetail == null ? "DetailsCreate" : "DetailsEdit";
+}
+
+<h4>ProductDetailVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="@_action">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control"  />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDetail.Height" class="control-label"></label>
+                <input asp-for="ProductDetail.Height" class="form-control" />
+                <span asp-validation-for="ProductDetail.Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDetail.Width" class="control-label"></label>
+                <input asp-for="ProductDetail.Width" class="form-control" />
+                <span asp-validation-for="ProductDetail.Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDetail.Color" class="control-label"></label>
+                <input asp-for="ProductDetail.Color" class="form-control" />
+                <span asp-validation-for="ProductDetail.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDetail.Detail" class="control-label"></label>
+                <input asp-for="ProductDetail.Detail" class="form-control" />
+                <span asp-validation-for="ProductDetail.Detail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @if (Model.ProductDetail == null)
+                {
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                }
+                else
+                {
+                    <input type="submit" value="Edit" class="btn btn-warning" />
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

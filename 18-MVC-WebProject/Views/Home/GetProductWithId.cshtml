@@ -1,0 +1,35 @@
+﻿@model CatProductDetailVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <h3>Kategoriler</h3>
+        <br />
+        <hr />
+        <br />
+        <ul class="list-group">
+            @foreach (var item in Model.Categories)
+            {
+                <a asp-action="GetProductWithCat" asp-controller="Home" asp-route-id="@item.Id">
+                <li class="list-group-item">@item.Name</li>
+                </a>
+            }
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <h3>Ürünler</h3>
+        <br />
+        <hr />
+        <br />
+        <div class="row">
+            <h4>@Model.Product.Name</h4>
+            <img src="~/img/products/@Model.Product.Image" style="max-width:200px;"/>
+            <h5>Stok: @Model.Product.Stock - Fiyat: @Model.Product.Price</h5>
+            <hr />
+            <p>Yükseklik: @Model.ProductDetail.Height Genişlik: @Model.ProductDetail.Width Renk: @Model.ProductDetail.Color</p>
+            <p>Detay: @Model.ProductDetail.Detail</p>
+        </div>
+    </div>
+</div>
