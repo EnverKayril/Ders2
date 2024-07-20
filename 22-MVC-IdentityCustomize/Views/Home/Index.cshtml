@@ -1,0 +1,23 @@
+﻿@model List<_22_MVC_IdentityCustomize.Models.VMs.GetMainPostVM>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @foreach (var item in Model)
+    {
+        <div>
+            <div class="card">
+                <div class="card-header">
+                    @item.Title
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">@item.Content</p>
+                    <a href="#" class="btn btn-primary">@item.PublishDate</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
